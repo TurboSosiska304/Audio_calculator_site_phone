@@ -1,6 +1,6 @@
 # Acoustic & Audio Physics Calculator (Phone version)
 
-## PC version: https://github.com/TurboSosiska304/Audio_calculator_site
+## PC version: [LINK](https://github.com/TurboSosiska304/Audio_calculator_site)
 
 This website provides interactive calculators and explanations for:
 
