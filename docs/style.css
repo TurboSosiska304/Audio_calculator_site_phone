@@ -1,0 +1,276 @@
+:root {
+  --bg: #181c22;
+  --panel: #232834;
+  --text: #e6eaf0;
+  --accent: #42a5f5;
+  --accent2: #1e88e5;
+  --code-bg: #212936;
+  --input-bg: #252c39;
+  --input-border: #364052;
+  --result-bg: #1b232c;
+  --tab-bg: #232834;
+  --tab-active: #1976d2;
+}
+html {
+  font-size: 16px; /* For rem scaling */
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: var(--bg);
+  margin: 0;
+  color: var(--text);
+}
+header {
+  background: linear-gradient(90deg, #232834 20%, #1e88e5cc 100%);
+  color: #fff;
+  padding: 1.3rem 0.5rem 1.1rem 0.5rem;
+  text-align: center;
+  box-shadow: 0 2px 8px #0008;
+  position: relative;
+}
+header h1 {
+  margin: 0 0 0.6rem 0;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+header p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.language-toggle {
+  position: fixed;
+  top: 0.7rem;
+  right: 1.1rem;
+  z-index: 100;
+  background: transparent;
+  display: flex;
+  gap: 0.4em;
+}
+.language-toggle button {
+  background: var(--panel);
+  color: var(--accent);
+  border: 1px solid var(--accent2);
+  border-radius: 0.4em;
+  padding: 0.32em 1.1em;
+  font-size: 1rem;
+  margin-left: 0;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  outline: none;
+  min-width: 78px;
+}
+.language-toggle button.active,
+.language-toggle button:focus {
+  background: var(--accent2);
+  color: #fff;
+}
+.tabs {
+  margin-top: 1.1em;
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: center;
+  gap: 0.3em;
+}
+.tab-btn {
+  background: var(--tab-bg);
+  color: var(--accent);
+  border: none;
+  padding: 0.6em 1.5em;
+  border-radius: 1.3em 1.3em 0 0;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.tab-btn.active {
+  background: var(--tab-active);
+  color: #fff;
+}
+main {
+  max-width: 500px;
+  margin: 1.2rem auto 2.3rem auto;
+  padding: 0 0.2rem;
+  display: block;
+}
+.calculator {
+  background: var(--panel);
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px #1119;
+  margin-bottom: 1.1rem;
+  padding: 0;
+  min-width: 0;
+  width: 100%;
+  transition: box-shadow 0.2s;
+}
+.calculator:hover {
+  box-shadow: 0 4px 20px #000b;
+}
+.calc-toggle {
+  width: 100%;
+  background: var(--tab-active);
+  color: #fff;
+  border: none;
+  padding: 1.1rem 0.9rem;
+  border-radius: 1.2rem 1.2rem 0 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+  text-align: left;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.18s;
+  box-shadow: 0 1px 4px #0004;
+  letter-spacing: 0.01em;
+}
+.calc-toggle[aria-expanded="false"] {
+  background: var(--panel);
+  color: var(--accent);
+}
+.calc-panel {
+  display: none;
+  padding: 1.1rem 0.8rem 1.4rem 0.8rem;
+}
+.calculator h2 {
+  margin-top: 0;
+  font-size: 1.08rem;
+  color: var(--accent);
+  margin-bottom: 0.9rem;
+  letter-spacing: 0.01em;
+  font-weight: 600;
+}
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.1rem;
+}
+.inputs label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1.02rem;
+  gap: 0.22em;
+  margin-bottom: 0.2em;
+}
+.inputs input, .inputs select {
+  border: 1px solid var(--input-border);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.7rem;
+  font-size: 1.13rem;
+  background: var(--input-bg);
+  color: var(--text);
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 0.14em;
+}
+button,
+.calc-panel button {
+  background: var(--accent2);
+  color: #fff;
+  border: none;
+  padding: 0.62rem 1.23rem;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-bottom: 0.8rem;
+  margin-top: 0.3rem;
+  transition: background 0.15s;
+  width: 100%;
+  font-weight: 600;
+}
+button:hover,
+.calc-panel button:hover {
+  background: var(--accent);
+}
+.result {
+  font-size: 1.09rem;
+  background: var(--result-bg);
+  color: var(--accent);
+  border-radius: 0.5rem;
+  padding: 0.8rem 0.7rem;
+  min-height: 1.4em;
+  margin-top: 0.3rem;
+  word-break: break-all;
+}
+.audio-formats {
+  max-width: 100vw;
+  margin: 0 auto;
+  padding: 0.6rem 0.2rem 1rem 0.2rem;
+  box-sizing: border-box;
+}
+.formats-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.formats-table {
+  width: 100%;
+  min-width: 500px;
+  margin-top: 1.1em;
+  margin-bottom: 1em;
+  border-collapse: collapse;
+  background: var(--code-bg);
+  color: var(--text);
+  border-radius: 0.7em;
+  overflow: hidden;
+  box-shadow: 0 1px 3px #0003;
+  font-size: 0.97em;
+}
+.formats-table th, .formats-table td {
+  border: 1px solid #333a;
+  padding: 0.65em 0.5em;
+  text-align: left;
+}
+.formats-table th {
+  background: var(--accent2);
+  color: #fff;
+  font-weight: 700;
+}
+.formats-table tr:nth-child(even) {
+  background: #1c2230;
+}
+.formats-table tr:nth-child(odd) {
+  background: #1e2533;
+}
+.formats-table td {
+  font-size: 0.99em;
+}
+#formats_intro, #formats_footer {
+  margin-bottom: 1.1em;
+  margin-top: 0.5em;
+  font-size: 1.04em;
+  color: var(--accent);
+}
+footer {
+  background: #222b;
+  color: #fff;
+  text-align: center;
+  padding: 1.1rem 0 1rem 0;
+  font-size: 1rem;
+}
+footer a {
+  color: #90caf9;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 600px) {
+  html { font-size: 15px; }
+  header h1 { font-size: 1.13rem; }
+  header { padding: 0.8rem 0.5rem 0.9rem 0.5rem; }
+  .language-toggle { top: 0.4rem; right: 0.5rem; }
+  .tabs { font-size: 0.98em; margin-top: 0.6em; margin-bottom: 0.6em; }
+  .tab-btn { padding: 0.37em 0.9em; font-size: 0.98em; }
+  main { padding: 0 0.01rem; }
+  .calculator { margin-bottom: 0.83rem; border-radius: 1.1rem; }
+  .calc-toggle { padding: 0.85rem 0.7rem; font-size: 1.02rem; border-radius: 1.1rem 1.1rem 0 0;}
+  .calc-panel { padding: 0.8rem 0.5rem 1.1rem 0.55rem; }
+  .inputs label { font-size: 0.97rem; }
+  .inputs input, .inputs select { font-size: 1rem; }
+  .formats-table { min-width: 375px; font-size: 0.93em; }
+}
